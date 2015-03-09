@@ -47,19 +47,6 @@
 
   <script type="text/javascript">
     Parse.initialize("applicationId", "javascriptKey");
-    
-    var TestObject = Parse.Object.extend("TestObject");
-    var testObject = new TestObject();
-	testObject.set("location", new Parse.GeoPoint(latLng[0], latLng[1]));
-      testObject.save({foo: "bar"}, {
-      success: function(object) {
-        $(".success").show();
-      },
-      error: function(model, error) {
-        $(".error").show();
-      }
-    });
-
   </script>
 
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
