@@ -26,8 +26,14 @@ function onDrag(e) {
 	updateEvents();
 }
 
-$.get('https://seeclickfix.com/api/v2/issues?page=2&per_page=10', function (data) {
-	console.log(data.issues);
+$.get('https://seeclickfix.com/api/v2/issues?page=2&per_page=10', function (results) {
+    // Do something with the returned issues objects
+    for (var i = 0; i < results.issues.length; i++) { 
+      var object = results.issues[i];
+
+	  m = L.marker([object.lat, object.lng]).bindPopup(object.summary);
+	  Markers.addLayer(m);
+    }
 });
 // create a map in the "map" div, set the view to a given place and zoom
 // var map = L.map('map').setView([51.505, -0.09], 13);
